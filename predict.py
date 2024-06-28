@@ -1,14 +1,10 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import classification_report
-from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.preprocessing import OneHotEncoder
-from sklearn.metrics import roc_auc_score
 from sklearn.compose import ColumnTransformer
 import numpy as np
-from sklearn.preprocessing import StandardScaler
 import pycountry as pc
 import math
 import tkinter as tk
