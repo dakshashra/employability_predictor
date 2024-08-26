@@ -27,8 +27,7 @@ transformer = ColumnTransformer([
 X = transformer.fit_transform(x)
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=42)
 model = joblib.load('model.pkl')
-print("Please wait while the model runs, may take upto 2 mins")
-print("Once it is ready, a tkinter window will pop up")
+
 #model.fit(X_train,y_train)
 print("Accuracy with training data:", (model.score(X_train,y_train))*100, "%")
 print("Accuracy with testing data:", (model.score(X_test,y_test))*100, "%")
