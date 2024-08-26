@@ -9,6 +9,7 @@ import pycountry as pc
 import math
 import tkinter as tk
 from tkinter import ttk
+import joblib
 df = pd.read_csv('./em.csv')
 df.isna().sum()
 df.dropna(inplace=True)
@@ -25,10 +26,10 @@ transformer = ColumnTransformer([
     ])
 X = transformer.fit_transform(x)
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=42)
-model = RandomForestClassifier()
+model = joblib.load('model.pkl')
 print("Please wait while the model runs, may take upto 2 mins")
 print("Once it is ready, a tkinter window will pop up")
-model.fit(X_train,y_train)
+#model.fit(X_train,y_train)
 print("Accuracy with training data:", (model.score(X_train,y_train))*100, "%")
 print("Accuracy with testing data:", (model.score(X_test,y_test))*100, "%")
 user_input = {
@@ -46,17 +47,17 @@ user_input = {
     'HaveWorkedWith': 'Assembly;C;C#;HTML/CSS;Python;SQL',
     'ComputerSkills': 6
 }
-transformer.fit(x)
+#transformer.fit(x)
 
-X = transformer.transform(x)
+#X = transformer.transform(x)
 
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=42)
+#X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=42)
 
-model = RandomForestClassifier()
-model.fit(X_train, y_train)
+#model = RandomForestClassifier()
+#model.fit(X_train, y_train)
 
-user_df = pd.DataFrame([user_input])
+#user_df = pd.DataFrame([user_input])
 
 
 class FormData:
